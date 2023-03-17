@@ -7,26 +7,27 @@ import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
 
 export function SignIn() {
-  const { signIn, user } = useAuth()
-
-  // console.log("USER DETAILS: ", user)
+  const { signIn, isUserLoading } = useAuth()
 
   return (
     <Center flex={1} bgColor="gray.900" p={7}>
       <Logo width={212} height={40} />
 
       <Button
-        title="log in with google"
-        leftIcon={<Icon as={Fontisto} name="google" color="white" size="md" />}
-        type="SECONDARY"
-        isLoading={true}
         mt={12}
+        type="SECONDARY"
+        title="LOG IN WITH GOOGLE"
+        leftIcon={<Icon as={Fontisto} name="google" color="white" size="md" />}
+        isLoading={isUserLoading}
         onPress={signIn}
+        _loading={{
+          _spinner: {color:'white'}
+        }}
       />
 
       <Text color="white" textAlign="center" mt={4}>
-        We do not use any information other {"\n"} than your email to create
-        your account.
+        We do not use any information other {"\n"} 
+        than your email to create your account.
       </Text>
     </Center>
   )

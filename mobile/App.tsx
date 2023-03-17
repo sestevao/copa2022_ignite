@@ -9,14 +9,11 @@ import { NativeBaseProvider, StatusBar } from "native-base"
 
 import { AuthContextProvider } from "./src/contexts/AuthContext"
 
+import { THEME } from "./src/styles/theme"
+
 import { Loading } from "./src/components/Loading"
 
-import { New } from "./src/screens/New"
-import { Find } from "./src/screens/Find"
-import { Pools } from "./src/screens/Pools"
-import { SignIn } from "./src/screens/SignIn"
-
-import { THEME } from "./src/styles/theme"
+import { Routes } from "./src/routes"
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +21,7 @@ export default function App() {
     Roboto_500Medium,
     Roboto_700Bold,
   })
-
+ 
   return (
     <NativeBaseProvider theme={THEME}>
       <AuthContextProvider>
@@ -34,7 +31,7 @@ export default function App() {
           translucent
         />
 
-        {fontsLoaded ? <Pools /> : <Loading />}
+        {fontsLoaded ? <Routes /> : <Loading />}
         
       </AuthContextProvider>
     </NativeBaseProvider>

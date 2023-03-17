@@ -1,13 +1,14 @@
-import cors from "@fastify/cors"
-import { PrismaClient } from "@prisma/client"
 import Fastify from "fastify"
-import ShortUniqueId from "short-unique-id"
-import { z } from "zod"
+import jwt from '@fastify/jwt'
+import cors from "@fastify/cors"
 
-const prisma = new PrismaClient({
-  log: ["query"],
-})
+import {authRoutes} from './routes/auth'
+import {gameRoutes} from './routes/game'
+import {pollRoutes} from './routes/poll'
+import {userRoutes} from './routes/user'
+import {guessRoutes} from './routes/guess'
 
+//config routes
 async function bootstrap() {
   const fastify = Fastify({
     logger: true,
@@ -17,45 +18,22 @@ async function bootstrap() {
     origin: true,
   })
 
-  fastify.get("/pools/count", async () => {
-    const count = await prisma.pool.count()
-
-    return { count }
+  // TODO transfer to environment variable
+  await fastify.register(jwt, {
+    secret: "nlwcopa",
   })
 
-  fastify.get("/users/count", async () => {
-    const count = await prisma.user.count()
+  // await fastify.register(async function plugin01() {
+  //   console.log('plugin01 register start')
+  // })
 
-    return { count }
-  })
+  await fastify.register(authRoutes)
+  await fastify.register(pollRoutes)
+  await fastify.register(gameRoutes)
+  await fastify.register(guessRoutes)
+  await fastify.register(userRoutes)
 
-  fastify.get("/guesses/count", async () => {
-    const count = await prisma.guess.count()
-
-    return { count }
-  })
-
-  fastify.post("/pools", async (request, reply) => {
-    const createPoolBody = z.object({
-      title: z.string(),
-    })
-
-    const { title } = createPoolBody.parse(request.body)
-
-    const generate = new ShortUniqueId({ length: 6 })
-    const code = String(generate()).toUpperCase()
-
-    await prisma.pool.create({
-      data: {
-        title,
-        code,
-      },
-    })
-
-    return reply.status(201).send({ code })
-  })
-
-  await fastify.listen({ port: 3333 /*host: "0.0.0.0"*/ })
+  await fastify.listen({ port: 3333, host: "0.0.0.0" })
 }
 
 bootstrap()

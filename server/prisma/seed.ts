@@ -5,16 +5,18 @@ const prisma = new PrismaClient()
 async function main() {
   const user = await prisma.user.create({
     data: {
-      name: "John Doe",
-      email: "john.dow@gmail.com",
-      avatarUrl: "https://github.com/sestevao.png"
+      name: "Susana Estevao",
+      email: "superuca.dark@gmail.com",
+      avatarUrl: "https://github.com/sestevao.png",
+      googleId:
+        "ya29.a0AVvZVspw5tQ-dWlbLOHnmKjD3IEoSUvgp121WrZLhGdcFthgR3HOo6Z-N5F2TitQjOzA8cIrsmrRdzrc5XbOyHsvxjEWlf2jGIQ9hODgK9B6nUfqOnITX4GP_i5VXgtUz-H6l3M91mW-MS-288mnAQ4858vmaCgYKAUcSARASFQGbdwaIeabruagBaI4u244Fq9zEYQ0163",
     },
   })
 
-  const pool = await prisma.pool.create({
+  const poll = await prisma.poll.create({
     data: {
-      title: "Example Pool",
-      code: "BOL123",
+      title: "Example Poll",
+      code: "POLL111",
       ownerId: user.id,
       participants: {
         create: {
@@ -26,7 +28,7 @@ async function main() {
 
   await prisma.game.create({
     data: {
-      date: "2022-11-18T00:06:34.159Z",
+      date: "2023-03-15T00:06:34.159Z",
       firstTeamCountryCode: "DE",
       secondTeamCountryCode: "BR",
     },
@@ -34,7 +36,7 @@ async function main() {
 
   await prisma.game.create({
     data: {
-      date: "2022-11-19T00:06:34.159Z",
+      date: "2023-03-15T00:06:34.159Z",
       firstTeamCountryCode: "BR",
       secondTeamCountryCode: "AR",
 
@@ -45,9 +47,9 @@ async function main() {
 
           participant: {
             connect: {
-              userId_poolId: {
+              userId_pollId: {
                 userId: user.id,
-                poolId: pool.id,
+                pollId: poll.id,
               },
             },
           },

@@ -1,6 +1,10 @@
-import { AppProps } from "next/app"
+import { AppProps } from "next/app";
 import "../styles/global.css"
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return 
+  <>
+    <title>NLW Copa 2022</title>
+    <Component {...pageProps} />
+  </>
 }   
