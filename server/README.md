@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="CupPoll2022" title="DATABASE_URL=file:./dev.db" src="Web.png" width="700px" />
+  <img alt="CupPoll2022" title="DATABASE_URL=file:./dev.db" src="../.github/Web.png" width="700px" />
 </h1>
 
 ## :rocket: Technologies

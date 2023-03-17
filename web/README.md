@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="CupPoll2022" title="#copa" src=".github/Web.png" width="700px" />
+    <img alt="CupPoll2022" title="#copa" src="../.github/Web.png" width="700px" />
 </h1>
 
 <br>

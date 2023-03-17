@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="CupPoll2022" title="#copa" src=".github/Capa.png" width="1200px" />
+    <img alt="CupPoll2022" title="#copa" src="../.github/Capa.png" width="1200px" />
 </h1>
 
 ## :rocket: Technologies

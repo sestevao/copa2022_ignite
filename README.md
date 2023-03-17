@@ -5,9 +5,7 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=NLW&message=10&color=F7DD43&labelColor=202024" alt="NLW 10 - Copa" />
   <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
-  <img src="http://img.shields.io/static/v1?label=STATUS&message=FINISH&color=GREEN&style=for-the-badge" alt="Finish Badge" />
-
-  <!-- ![Finish Badge](http://img.shields.io/static/v1?label=STATUS&message=FINISH&color=GREEN&style=for-the-badge) -->
+  <img src="https://img.shields.io/badge/status-finish-blue" alt="Finish Badge" />
 </p>
 
 <h1 align="center">
@@ -61,7 +59,7 @@ $ npm run dev
 ```bash
 
 $ git clone https://github.com/sestevao/copa2022_ignite/web
-$ cd nlwcopa
+$ cd copa2022_ignite
 $ cd web
 $ npm install
 $ npm run dev
@@ -88,7 +86,7 @@ $ npm run dev
 ```bash
 
 $ git clone https://github.com/sestevao/copa2022_ignite/mobile
-$ cd nlwcopa
+$ cd copa2022_ignite
 $ cd mobile
 $ npm install
 $ npx expo start
