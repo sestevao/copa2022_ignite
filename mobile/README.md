@@ -42,9 +42,8 @@ $ npx expo install expo-web-browser
 
 # https://docs.expo.dev/guides/authentication/
 # https://console.cloud.google.com
-
-->  URIs (Authorized JavaScript origins): https://auth.expo.io
--> Authorized redirect URIs: https://auth.expo.io/@sestevao/nlwcopa2022
+    # URIs (Authorized JavaScript origins): https://auth.expo.io
+    # Authorized redirect URIs: https://auth.expo.io/@sestevao/nlwcopa2022
 
 $ npm install --save phosphor-react-native
 $ npx expo start --clear
